@@ -1,11 +1,12 @@
 from typing import List
+from datetime import datetime
 from pydantic import BaseModel
 
 
 class Task(BaseModel):
     title: str
     content: str
-    status:int 
+    status:bool
 
     class Config():
         orm_mode = True
@@ -36,15 +37,18 @@ class User(BaseModel):
 
 class TaskBase(BaseModel):
     title: str
+    status: bool
     content: str
-    status: int
+    end:datetime
     creator_id: int
 
 
 class TaskDisplay(BaseModel):
     title: str
     content: str
-    status: int
+    status: bool
+    
+    end:datetime
     user: User
 
     class Config():

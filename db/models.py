@@ -21,6 +21,6 @@ class DbTask(Base):
     content = Column(String)
     start=Column(DateTime)
     end=Column(DateTime)
-    status = Column(Integer)
+    status = Column(Boolean)
     user_id = Column(Integer, ForeignKey('users.id'))
     user = relationship("DbUser", back_populates='items')

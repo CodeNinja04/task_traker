@@ -4,10 +4,11 @@ from db.database import engine
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from auth import authentication
-from routers import user
+from routers import user,task
 
 app = FastAPI()
 app.include_router(user.router)
+app.include_router(task.router)
 app.include_router(authentication.router)
 
 @app.get('/hello')
