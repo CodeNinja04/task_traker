@@ -3,13 +3,14 @@ from db.models import DbTask
 #from router.exceptions import StoryException
 from schemas import TaskBase
 from fastapi import HTTPException,status
-
+import datetime
 def create_Task(db:Session,request:TaskBase):
     
     new_task = DbTask(
         title=request.title,
         content=request.content,
         status=request.status,
+        start=datetime.datetime.now(),
         end=request.end,
         user_id=request.creator_id
         

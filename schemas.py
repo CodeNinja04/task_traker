@@ -39,6 +39,7 @@ class TaskBase(BaseModel):
     title: str
     status: bool
     content: str
+    start:datetime
     end:datetime
     creator_id: int
 
