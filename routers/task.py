@@ -21,4 +21,15 @@ def get_Task(id: int, db: Session = Depends(get_db), current_user: UserBase = De
         'data':db_task.get_Task(db,id),
         'current_user':current_user
     }
+
+@router.delete('/{id}')
+def delete_Task(id: int, db: Session = Depends(get_db), current_user: UserBase = Depends(get_current_user)):
+    return db_task.delete_task(id,db)
+    
+    
+
+@router.put('/{id}/update')
+def update_task(id: int,request: TaskBase,db : Session = Depends(get_db)):
+    return db_task.update_task(id ,db,request)
+
     
